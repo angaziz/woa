@@ -1,4 +1,4 @@
-# 🤖 WOA (Working Assistant)
+# 🤖 WOA! (Working Assistant)
 
 A personal document assistant that helps you find information in your local documents. Built with Clean Architecture principles, WOA provides a modular system for document processing and question answering. Originally developed for personal use, this tool is now available for anyone to leverage and customize.
 
