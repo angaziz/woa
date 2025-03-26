@@ -1,3 +1,88 @@
+# Architecture Overview
+
+WOA is built following Clean Architecture principles, with clear separation of concerns and dependency inversion. This document outlines the architectural decisions and component organization.
+
+## Core Principles
+
+- **Dependency Rule**: Dependencies point inward, with the domain layer at the center
+- **Separation of Concerns**: Each layer has a specific responsibility
+- **Interface Segregation**: Components communicate through well-defined interfaces
+- **Dependency Injection**: Dependencies are injected rather than created internally
+
+## Layer Structure
+
+### 1. Domain Layer (`src/domain/`)
+
+- Contains business logic and core entities
+- Defines interfaces for external dependencies
+- No dependencies on external frameworks or libraries
+- Key components:
+  - Models (Document, Chunk, Query)
+  - Interfaces (DocumentParser, VectorStore, LLMClient, EmbeddingGenerator)
+
+### 2. Application Layer (`src/application/`)
+
+- Orchestrates the flow of data and domain objects
+- Implements use cases
+- Depends only on the domain layer
+- Key components:
+  - IngestionService
+  - QAService
+
+### 3. Infrastructure Layer (`src/infrastructure/`)
+
+- Implements interfaces defined in the domain layer
+- Handles external concerns (file system, APIs, databases)
+- Contains all framework-specific code
+- Key components:
+  - OpenAI implementations (OpenAIEmbeddingGenerator, OpenAIChat)
+  - ChromaVectorStore
+  - Document parsers
+  - Configuration management
+
+## Component Dependencies
+
+```
+Domain Layer
+    ↑
+Application Layer
+    ↑
+Infrastructure Layer
+```
+
+## Key Design Decisions
+
+1. **Modularity**
+
+   - All major components are interface-based
+   - Easy to swap implementations (e.g., different LLM providers)
+   - Testing facilitated through interface mocking
+
+2. **Configuration**
+
+   - Environment-based configuration
+   - Sensible defaults with override capability
+   - Clear separation of configuration from code
+
+3. **Error Handling**
+
+   - Domain-specific exceptions
+   - Clear error boundaries between layers
+   - Graceful degradation where appropriate
+
+4. **Data Flow**
+   - Unidirectional data flow
+   - Clear ownership of data at each layer
+   - Immutable domain objects where possible
+
+## Future Considerations
+
+- Scalability through modular design
+- Potential for distributed processing
+- Integration with additional document types
+- Enhanced metadata handling
+- Performance optimizations
+
 # 🧠 Smart Assistant Architecture
 
 This project is a modular document-based AI assistant built using Python, following **Onion / Clean Architecture** principles. It ingests documents from disk, chunks and embeds them, stores them in a vector database, and uses an LLM to answer user questions based on semantic search results.
