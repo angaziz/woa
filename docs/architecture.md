@@ -70,7 +70,7 @@ data/
 ├── processed/ # Optional: processed metadata, logs, etc.
 ```
 
-You can simulate document tags via subdirectories (e.g., `data/raw/hr/handbook.pdf` → tag: `hr`).
+You can simulate document tags via subdirectories (e.g., `.data/raw/hr/handbook.pdf` → tag: `hr`).
 
 ---
 

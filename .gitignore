@@ -54,5 +54,5 @@ chroma/
 __debug_bin__/
 
 # Data (optional: only if you're rebuilding these)
-data/processed/
-data/raw/
+.data/processed/
+.data/raw/

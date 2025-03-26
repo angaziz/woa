@@ -25,7 +25,7 @@
 ### Application Logic
 
 - [ ] `IngestionService.run(path)` – full ingest pipeline
-  - Recursively scan `data/raw`
+  - Recursively scan `.data/raw`
   - Parse → Chunk → Embed → Store
   - Assign tags from folder name (e.g. `data/raw/hr/` → tag: hr)
 
@@ -68,3 +68,9 @@
 - [ ] Mocking ports for isolation
 
 ---
+
+📈 Roadmap
+• Modular ingestion system
+• LLM-powered QnA system (textualize)
+• Add Confluence, email, or other doc sources
+• Expandable to REST, web UI, other vector DBs or LLMs

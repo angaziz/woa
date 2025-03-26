@@ -5,10 +5,13 @@ langchain-community==0.3.20
 langchain-openai==0.3.10
 
 # File parsing
-unstructured==0.17.2
+unstructured[all-docs]==0.17.2
 
 # Vector database (local)
 chromadb==0.6.3
 
 # Environment management
 python-dotenv==1.1.0
+
+# Progress bar
+tqdm==4.67.1
