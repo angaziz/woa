@@ -48,7 +48,7 @@ htmlcov/
 ruff_cache/
 
 # Chroma DB (local)
-chroma/
+.chroma/
 
 # VS Code Python debugger
 __debug_bin__/

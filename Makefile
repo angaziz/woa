@@ -1,4 +1,4 @@
-.PHONY: ingest view-store setup install help
+.PHONY: ingest view-store setup install help run qa
 
 # Default target
 help:
@@ -7,6 +7,7 @@ help:
 	@echo "  make install     - Install required dependencies"
 	@echo "  make ingest      - Run the document ingestion process"
 	@echo "  make view-store  - View the contents of the vector store"
+	@echo "  make qa          - Start the question-answering system (CLI)"
 	@echo "  make help        - Show this help message"
 
 # Setup directories and environment
@@ -30,6 +31,11 @@ ingest:
 view-store:
 	@echo "Viewing vector store contents..."
 	python src/dev/view_vector_store.py
+
+# Start QA system
+qa:
+	@echo "Starting question-answering system..."
+	python src/main.py
 
 # Clean up (if needed)
 clean:
